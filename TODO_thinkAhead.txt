@@ -1,11 +1,12 @@
 ## M5
-- Lumen API 0.9 [ ]
-- Aluminum UI 0.6 [ ]
-- LTK 0.5 (Lumen ToolKit) [ ]
-- Undo/Redo [ ]
+- Lumen API 1.0 [ ]
+- GNOME [ ]
+- LTK 1.0 (Lumen ToolKit) [ ]
+- Undo/Redo (integrated into GNOME) [ ]
 - Start of x86/x64/x86-64 Support [ ]
 - x86, x64, x86-64 Support ABIs [ ]
 - Adding Gnome-Shell (Keeping Phosh) [ ]
 - Dropping phone Support as bootloader unlocking is tightening and maintaining phone and pc architectures will become unmaintainable [ ]
+- Shell switcher 0.5
 - APITK (API ToolKit) [ ]
 - Debug Tools 1.0 [Done]
