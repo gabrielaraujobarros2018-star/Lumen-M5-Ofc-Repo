@@ -1,0 +1,9 @@
+{
+  "name": "1080p Desktop",
+  "scale": 1.0,
+  "panel-height": 40,
+  "clock-size": 32,
+  "dash-icon-size": 44,
+  "font-scale": 1.1,
+  "workspaces": 8
+}
