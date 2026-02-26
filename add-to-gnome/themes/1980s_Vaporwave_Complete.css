@@ -1,0 +1,364 @@
+/* 1980s_Vaporwave_Complete.css - Full GNOME Shell Theme */
+/* Retro-futuristic vaporwave aesthetic for Phosh/GNOME Shell */
+/* ~300 LOC complete theme - Place in ~/.themes/1980s_Vaporwave/gnome-shell/gnome-shell.css */
+
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=OCR-A+Std&display=swap");
+
+/* ========================================
+   ROOT VARIABLES - VAPORWAVE PALETTE
+   ======================================== */
+* {
+    font-family: "Orbitron", "OCR A Std", monospace;
+    font-weight: 400;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Vaporwave Color Scheme */
+:root {
+    --vapor-bg-primary: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
+    --vapor-bg-secondary: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+    --neon-pink: #ff00ff;
+    --neon-cyan: #00ffff;
+    --neon-purple: #9b59b6;
+    --vapor-dark: #0a0a14;
+    --glass-glow: rgba(255, 0, 255, 0.1);
+    --scanline-glow: rgba(0, 255, 255, 0.05);
+}
+
+/* ========================================
+   PANEL & TOP BAR
+   ======================================== */
+#panel {
+    background: var(--vapor-bg-primary);
+    border: none;
+    box-shadow: 
+        0 0 30px var(--neon-pink),
+        0 0 60px var(--neon-cyan),
+        inset 0 0 20px rgba(0, 255, 255, 0.1);
+    margin: 0 8px 8px 8px;
+    border-radius: 12px;
+    backdrop-filter: blur(15px);
+    position: relative;
+    overflow: hidden;
+}
+
+#panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent 0%, var(--neon-pink) 25%, 
+        var(--neon-cyan) 50%, var(--neon-pink) 75%, 
+        transparent 100%);
+    animation: scanline 4s linear infinite;
+}
+
+/* ========================================
+   CLOCK (ENHANCED 80s VERSION)
+   ======================================== */
+.clock, .clock-display {
+    background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
+    border: 2px solid transparent;
+    border-image: linear-gradient(45deg, var(--neon-pink), var(--neon-cyan)) 1;
+    border-radius: 8px;
+    padding: 12px 20px;
+    margin: 4px;
+    box-shadow: 
+        0 0 20px var(--neon-pink),
+        0 0 40px var(--neon-cyan),
+        inset 0 0 15px rgba(0, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.clock::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        0deg, transparent, transparent 2px,
+        var(--scanline-glow) 2px, var(--scanline-glow) 4px
+    );
+    animation: flicker 3s infinite;
+}
+
+.clock-time {
+    font-size: 28px;
+    font-family: "Orbitron", monospace;
+    font-weight: 900;
+    color: var(--neon-cyan);
+    text-shadow: 
+        0 0 15px currentColor,
+        0 0 25px var(--neon-pink),
+        2px 0 0 #000, -2px 0 0 #000;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.clock-date {
+    font-size: 11px;
+    color: var(--neon-pink);
+    text-shadow: 0 0 10px currentColor;
+    letter-spacing: 4px;
+    margin-top: 3px;
+}
+
+/* ========================================
+   APPLICATION ICONS & MENU
+   ======================================== */
+#appMenu {
+    background: var(--vapor-bg-secondary);
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 
+        0 10px 40px rgba(255, 0, 255, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+.app-menu-icon {
+    border-radius: 8px;
+    margin: 4px;
+    padding: 8px;
+    transition: all 0.2s ease;
+}
+
+.app-menu-icon:hover {
+    background: rgba(255, 0, 255, 0.2);
+    box-shadow: 0 0 20px var(--neon-pink);
+    transform: scale(1.05);
+}
+
+/* ========================================
+   WORKSPACES & OVERVIEW
+   ======================================== */
+.workspace-thumbnails {
+    background: var(--vapor-bg-primary);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.5),
+        inset 0 0 30px rgba(0, 255, 255, 0.1);
+}
+
+.workspace-thumbnail {
+    border-radius: 12px;
+    border: 2px solid transparent;
+    border-image: linear-gradient(45deg, var(--neon-cyan), var(--neon-pink)) 1;
+    margin: 8px;
+    transition: all 0.3s ease;
+}
+
+.workspace-thumbnail:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(255, 0, 255, 0.4);
+}
+
+/* ========================================
+   NOTIFICATIONS & MESSAGE TRAY
+   ======================================== */
+.message-list {
+    background: var(--vapor-bg-secondary);
+    border-radius: 16px;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 
+        0 15px 50px rgba(0, 0, 0, 0.4),
+        inset 0 0 20px rgba(255, 0, 255, 0.1);
+    backdrop-filter: blur(25px);
+}
+
+.notification {
+    background: rgba(26, 26, 46, 0.9);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 12px;
+    margin: 8px 0;
+    padding: 16px;
+    backdrop-filter: blur(15px);
+}
+
+.notification:hover {
+    box-shadow: 0 0 30px var(--neon-cyan);
+    transform: translateX(5px);
+}
+
+/* ========================================
+   DASH & APP ICONS
+   ======================================== */
+.dash {
+    background: transparent;
+    margin: 12px;
+}
+
+.dash-item-container {
+    margin: 6px;
+    border-radius: 12px;
+    padding: 8px;
+    transition: all 0.3s ease;
+}
+
+.dash-item-container:hover {
+    background: rgba(255, 0, 255, 0.15);
+    box-shadow: 
+        0 0 25px var(--neon-pink),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transform: scale(1.1);
+}
+
+.show-apps .show-apps-icon {
+    color: var(--neon-cyan);
+    text-shadow: 0 0 15px currentColor;
+    font-size: 24px;
+}
+
+/* ========================================
+   OVERVIEW MODE
+   ======================================== */
+.overview {
+    background: var(--vapor-bg-primary);
+}
+
+.search-entry {
+    background: rgba(15, 15, 35, 0.9);
+    border: 2px solid var(--neon-cyan);
+    border-radius: 12px;
+    color: var(--neon-cyan);
+    padding: 16px 20px;
+    font-size: 16px;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+}
+
+.search-entry:focus {
+    border-color: var(--neon-pink);
+    box-shadow: 
+        0 0 40px var(--neon-pink),
+        inset 0 0 10px rgba(255, 0, 255, 0.2);
+}
+
+/* ========================================
+   POPUPS & DIALOGS
+   ======================================== */
+.popup-menu {
+    background: var(--vapor-bg-secondary);
+    border-radius: 16px;
+    padding: 12px;
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.5),
+        0 0 40px rgba(255, 0, 255, 0.3);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+.popup-menu-item {
+    color: #ffffff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin: 2px 0;
+}
+
+.popup-menu-item:hover,
+.popup-menu-item:active {
+    background: rgba(255, 0, 255, 0.2);
+    box-shadow: 0 0 20px var(--neon-pink);
+}
+
+/* ========================================
+   PHOSH MOBILE OPTIMIZATIONS
+   ======================================== */
+@media (max-width: 768px) {
+    #panel {
+        margin: 4px;
+        border-radius: 8px;
+    }
+    
+    .clock-time {
+        font-size: 24px;
+        letter-spacing: 2px;
+    }
+    
+    .dash-item-container {
+        margin: 4px;
+        padding: 6px;
+    }
+    
+    .notification {
+        margin: 6px 0;
+        padding: 12px;
+    }
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+@keyframes scanline {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+@keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% { opacity: 1; }
+    20%, 24%, 55% { opacity: 0.9; }
+}
+
+@keyframes vaporwave-glow {
+    0%, 100% { 
+        box-shadow: 0 0 20px var(--neon-pink), 0 0 40px var(--neon-cyan); 
+    }
+    50% { 
+        box-shadow: 0 0 30px var(--neon-pink), 0 0 60px var(--neon-cyan); 
+    }
+}
+
+#panel, .notification, .popup-menu {
+    animation: vaporwave-glow 4s ease-in-out infinite;
+}
+
+/* Glitch hover effect */
+.clock:hover, .dash-item-container:hover {
+    animation: glitch 0.3s linear;
+}
+
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+}
+
+/* ========================================
+   STATUS AREA
+   ======================================== */
+#aggregate-status .status-area .status-area-box {
+    padding: 8px;
+    margin: 2px;
+    border-radius: 8px;
+    background: rgba(255, 0, 255, 0.1);
+}
+
+.system-status-icon {
+    color: var(--neon-cyan);
+    text-shadow: 0 0 10px currentColor;
+}
+
+/* ========================================
+   LOADING & SPINNER
+   ======================================== */
+spinner:checked {
+    color: var(--neon-pink);
+    box-shadow: 0 0 20px currentColor;
+}
+
+/* Final touch - universal neon glow */
+*:focus {
+    outline: 2px solid var(--neon-cyan);
+    outline-offset: 2px;
+    box-shadow: 0 0 20px var(--neon-cyan);
+  }
