@@ -1,0 +1,318 @@
+/* sample01.Glassmorphism.gnome-shell.css */
+/* Clean glassmorphism theme for GNOME Shell/Phosh */
+/* Perfect for Lumen OS on Galaxy A05s */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+:root {
+    /* Glassmorphism Palette */
+    --glass-bg-primary: rgba(255, 255, 255, 0.08);
+    --glass-bg-secondary: rgba(255, 255, 255, 0.06);
+    --glass-border: rgba(255, 255, 255, 0.18);
+    --glass-glow: rgba(255, 255, 255, 0.12);
+    --glass-shadow: rgba(0, 0, 0, 0.15);
+    
+    /* Modern Neutrals */
+    --bg-dark: #0a0a0f;
+    --surface-100: rgba(20, 20, 30, 0.9);
+    --surface-200: rgba(30, 30, 45, 0.8);
+    --text-primary: rgba(255, 255, 255, 0.95);
+    --text-secondary: rgba(255, 255, 255, 0.75);
+    
+    /* Accents */
+    --accent-blue: #3b82f6;
+    --accent-purple: #8b5cf6;
+}
+
+/* ========================================
+   PANEL - Frosted Glass Top Bar
+   ======================================== */
+#panel {
+    background: var(--glass-bg-primary);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    box-shadow: 
+        0 8px 32px var(--glass-shadow),
+        0 2px 16px var(--glass-glow),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    margin: 8px;
+    padding: 4px 12px;
+}
+
+/* Subtle panel shine */
+#panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent, rgba(255,255,255,0.4), transparent);
+    border-radius: 1px;
+}
+
+/* ========================================
+   CLOCK - Glass Orb Effect
+   ======================================== */
+.clock, .clock-display {
+    background: var(--glass-bg-secondary);
+    backdrop-filter: blur(32px) saturate(200%);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 12px 24px;
+    margin: 4px 8px;
+    box-shadow: 
+        0 12px 40px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15),
+        0 0 0 1px rgba(255, 255, 255, 0.05);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.clock:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.clock-time {
+    font-family: "Inter", sans-serif;
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--text-primary);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    letter-spacing: -0.5px;
+}
+
+.clock-date {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text-secondary);
+    margin-top: 4px;
+    letter-spacing: 0.5px;
+}
+
+/* ========================================
+   DASH - Floating Glass Icons
+   ======================================== */
+.dash {
+    margin: 16px;
+}
+
+.dash-item-container {
+    margin: 8px 6px;
+    padding: 12px;
+    border-radius: 16px;
+    background: var(--glass-bg-primary);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dash-item-container:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 
+        0 16px 48px rgba(0, 0, 0, 0.2),
+        0 0 0 1px rgba(255, 255, 255, 0.15);
+}
+
+.dash-item-container .app-icon {
+    border-radius: 12px;
+}
+
+/* ========================================
+   OVERVIEW - Glass Workspace Cards
+   ======================================== */
+.workspace-thumbnails {
+    background: rgba(10, 10, 15, 0.85);
+    backdrop-filter: blur(40px);
+    border-radius: 24px;
+    padding: 24px;
+    margin: 20px;
+    border: 1px solid var(--glass-border);
+}
+
+.workspace-thumbnail {
+    background: var(--glass-bg-primary);
+    backdrop-filter: blur(24px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    margin: 12px;
+    transition: all 0.4s ease;
+}
+
+.workspace-thumbnail:hover {
+    transform: translateY(-8px);
+    box-shadow: 
+        0 24px 64px rgba(0, 0, 0, 0.25),
+        0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+/* ========================================
+   NOTIFICATIONS - Floating Glass Bubbles
+   ======================================== */
+.message-list {
+    background: rgba(20, 20, 30, 0.9);
+    backdrop-filter: blur(32px);
+    border-radius: 24px;
+    padding: 24px;
+    margin: 16px;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 16px 56px rgba(0, 0, 0, 0.2);
+}
+
+.notification {
+    background: var(--glass-bg-secondary);
+    backdrop-filter: blur(28px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 20px;
+    margin: 12px 0;
+    transition: all 0.3s ease;
+}
+
+.notification:hover {
+    transform: translateX(8px);
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.25),
+        0 0 0 1px rgba(255, 255, 255, 0.15);
+}
+
+/* ========================================
+   POPUP MENUS - Glass Dropdowns
+   ======================================== */
+.popup-menu, .app-menu {
+    background: var(--glass-bg-primary);
+    backdrop-filter: blur(32px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 12px;
+    box-shadow: 
+        0 24px 64px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.popup-menu-item, .app-menu-item {
+    border-radius: 12px;
+    padding: 14px 20px;
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+}
+
+.popup-menu-item:hover, .app-menu-item:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--text-primary);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+/* ========================================
+   SEARCH - Glass Input Field
+   ======================================== */
+.search-entry {
+    background: var(--glass-bg-secondary);
+    backdrop-filter: blur(28px);
+    border: 2px solid var(--glass-border);
+    border-radius: 16px;
+    color: var(--text-primary);
+    padding: 16px 24px;
+    font-size: 16px;
+    box-shadow: 
+        0 12px 40px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.search-entry:focus {
+    border-color: var(--accent-blue);
+    box-shadow: 
+        0 0 0 3px rgba(59, 130, 246, 0.2),
+        0 16px 48px rgba(0, 0, 0, 0.2);
+}
+
+/* ========================================
+   STATUS INDICATORS - Subtle Glass Pills
+   ======================================== */
+#aggregate-status .status-area-box {
+    padding: 8px 12px;
+    margin: 4px;
+    background: var(--glass-bg-primary);
+    border-radius: 12px;
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+}
+
+.system-status-icon {
+    color: var(--text-secondary);
+    padding: 4px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.system-status-icon:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+}
+
+/* ========================================
+   MOBILE/PHOSH OPTIMIZATIONS
+   ======================================== */
+@media (max-width: 768px) {
+    #panel {
+        margin: 4px;
+        border-radius: 12px;
+        padding: 2px 8px;
+    }
+    
+    .clock {
+        padding: 10px 16px;
+        margin: 2px 4px;
+    }
+    
+    .clock-time {
+        font-size: 24px;
+    }
+    
+    .dash-item-container {
+        margin: 4px 3px;
+        padding: 10px;
+    }
+    
+    .notification {
+        margin: 8px 0;
+        padding: 16px;
+    }
+}
+
+/* ========================================
+   FOCUS STATES & INTERACTIONS
+   ======================================== */
+*:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+button:focus, .entry:focus {
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+/* Subtle breathing animation for idle state */
+@keyframes glass-breath {
+    0%, 100% { 
+        background: var(--glass-bg-primary); 
+        transform: scale(1);
+    }
+    50% { 
+        background: rgba(255, 255, 255, 0.1); 
+        transform: scale(1.01);
+    }
+}
+
+#panel:not(:hover) {
+    animation: glass-breath 6s ease-in-out infinite;
+  }
