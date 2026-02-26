@@ -1,0 +1,7 @@
+{
+  "name": "PinePhone",
+  "x-res": 720,
+  "y-res": 1440,
+  "corner-radii": [0, 0, 0, 0],
+  "cutouts": []
+}
