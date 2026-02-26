@@ -1,0 +1,9 @@
+{
+  "name": "1080p Tablet",
+  "scale": 1.25,
+  "panel-height": 42,
+  "clock-size": 28,
+  "dash-icon-size": 40,
+  "font-scale": 1.05,
+  "workspaces": 6
+}
