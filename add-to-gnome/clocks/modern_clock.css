@@ -1,0 +1,92 @@
+/* modern_clock.css for Phosh/GNOME Shell */
+/* Place in ~/.config/gtk-4.0/gtk.css or gnome-shell theme directory */
+
+/* Modern clock display styling */
+.clock,
+.clock-display,
+.clock-display-box {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    border-radius: 16px;
+    padding: 8px 16px;
+    margin: 4px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-weight: 500;
+    min-width: 120px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Time text - large, modern font */
+.clock-time {
+    font-size: 28px;
+    font-family: "Inter", "Roboto", "Cantarell", sans-serif;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    font-variation-settings: 'wght' 500;
+}
+
+/* Date text - smaller, subtle */
+.clock-date {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 400;
+    margin-top: 2px;
+}
+
+/* Hover effect for modern glassmorphism */
+.clock:hover,
+.clock-display:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(30, 60, 114, 0.4);
+    background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);
+}
+
+/* Active/focus state */
+.clock:active,
+.clock-display:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Phosh mobile optimizations */
+#panel .clock {
+    margin: 2px 8px;
+    padding: 6px 12px;
+    min-width: 100px;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .clock,
+    .clock-display {
+        background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+    }
+}
+
+/* Light mode support */
+@media (prefers-color-scheme: light) {
+    .clock,
+    .clock-display {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: #ffffff;
+    }
+    
+    .clock-time {
+        color: #2d3748;
+        text-shadow: none;
+    }
+}
+
+/* Compact mode for small screens (Phosh) */
+@media (max-width: 480px) {
+    .clock-time {
+        font-size: 24px;
+    }
+    
+    .clock {
+        padding: 6px 12px;
+        margin: 2px;
+        border-radius: 12px;
+    }
+}
