@@ -1,0 +1,9 @@
+{
+  "name": "720p Mobile",
+  "scale": 1.0,
+  "panel-height": 36,
+  "clock-size": 24,
+  "dash-icon-size": 32,
+  "font-scale": 0.95,
+  "workspaces": 4
+}
