@@ -1,0 +1,9 @@
+{
+  "name": "480p Legacy Mobile",
+  "scale": 1.5,
+  "panel-height": 32,
+  "clock-size": 20,
+  "dash-icon-size": 28,
+  "font-scale": 0.9,
+  "workspaces": 2
+}
