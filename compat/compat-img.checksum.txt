@@ -1,0 +1,4 @@
+File: Main Storage/lumen/src/lumen-motonexus6/system/compat/compat.img
+MD5: 40:93:86:bd:a3:dd:95:fb:d2:92:06:7f:73:9f:b7:96
+SHA1: 22:fe:54:74:34:e6:01:7f:4b:3b:23:e1:b7:02:ed:6c:cf:a8:9d:54
+SHA256: 09:bf:f6:e0:b9:35:eb:6f:e7:5f:e6:8f:4c:ee:60:eb:9d:17:e8:52:0c:15:da:f3:db:42:1c:b5:55:f6:d2:95
